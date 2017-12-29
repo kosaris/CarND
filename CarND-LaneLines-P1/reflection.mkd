@@ -27,6 +27,6 @@ One possible improvement for videos is to perform temporal filtering on the slop
 This method will work fine on videos but will not work on images alone and will also not work very efficiently while the filter is being initialized. One method is to use the raw signal until the filter is initialized and then use the filtered values. 
 
 One can use a first order IIR filter with the equation:
-$$y[k] = \alpha * y[k-1] + (1-\alpha) * u[k]  $$
+![img](http://latex.codecogs.com/svg.latex?y%5Bk%5D%3D%5Calpha%2Ay%5Bk-1%5D%2B%281-%5Calpha%29%2Au%5Bk%5D).
 
 Another improvement is to remove the outliers in slope. I tried calculating the mean and standard deviation and removing the points that are 2 standard deviations apart from the mean but it did not provide very good results particularly because in some of the frames only a few points were present and they were all outside 2 standard deviations of mean.
