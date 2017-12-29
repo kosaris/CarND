@@ -1,6 +1,6 @@
 # Reflection
 ## 1. Pipeline Description
-my pipeline consists of X steps:
+my pipeline consists of 6 steps:
 
 1. Initializing the parameters (the parameters are: vertices for image, canny low and high thresholds, Gaussian Blur kernel size and hough transform parameters
 2. Converting the image to grayscale image
