@@ -7,7 +7,7 @@ my pipeline consists of X steps:
 3. Performing Guassian Blur
 4. Performing Canny Edge Detection
 5. Doing Hough Transform
-6. detecting the lines and drawing them on the image
+6. Detecting the lines and drawing them on the image
 
 The function `detect_lines` performs all the above.
 
