@@ -16,7 +16,7 @@ The method works very well on the two submission videos and most of the _challen
 
 An example of the detecting a pavement color change is shown here:
 
-![detecting pavement color change](interesting_screenshots/challenge_detecting_color_change.png){: height="250px"}
+![detecting pavement color change](interesting_screenshots/challenge_detecting_color_change.png)
 
 The method used here requires the images to be calibrated for each car. For example the challenge video required additional tuning because the aspect ratio was different and the camera was mounted different. I assume this is not a big shortcoming because it is acceptable to have each camera be calibrated to each car. However, a more general solution will figure this out automatically but is outside the scope of this project.
 
