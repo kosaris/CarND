@@ -21,12 +21,13 @@ sess = tf.Session()
 sess.run(init)
 print(sess.run(loss, {x1: x1_train, x2: x2_train, y:y_train}))
 
-learn_rate = .5
+learn_rate = .01
 optimizer = tf.train.GradientDescentOptimizer(learn_rate)
 train = optimizer.minimize(loss)
 
-log_path = os.path.dirname(os.path.abspath(__file__))
+log_path = os.path.dirname(os.path.abspath(__file__))+"/logs"
 graph_writer = tf.summary.FileWriter(log_path , sess.graph)
+
 n_epochs = 5000
 cost_vector = []
 for i in range(n_epochs):
