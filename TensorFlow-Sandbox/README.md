@@ -15,5 +15,5 @@ To see the graph
 It should show a graph of the network as seen below
 ![image of tf graph](example1_graph.png)
 
-
-
+The code also plots the loss function over epochs as shown below:
+![loss function over epoch](example1_loss.png)
