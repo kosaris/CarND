@@ -13,7 +13,7 @@ To see the graph
 3. open a browser and nagivate to http://localhost:6006/
 
 It should show a graph of the network as seen below
-![image of tf graph](example1.png)
+![image of tf graph](example1_graph.png)
 
 
 
