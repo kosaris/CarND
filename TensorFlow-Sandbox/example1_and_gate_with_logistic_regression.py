@@ -1,8 +1,9 @@
 import tensorflow as tf
+import os
 
-x1 = tf.placeholder(tf.float32)
-x2 = tf.placeholder(tf.float32)
-y = tf.placeholder(tf.float32)
+x1 = tf.placeholder(tf.float32, name = "x1")
+x2 = tf.placeholder(tf.float32, name = "x2")
+y = tf.placeholder(tf.float32, name = "y")
 
 W = tf.Variable([0.1, 0.1], dtype=tf.float32)
 b = tf.Variable([0.1], dtype=tf.float32)
@@ -23,6 +24,8 @@ learn_rate = .5
 optimizer = tf.train.GradientDescentOptimizer(learn_rate)
 train = optimizer.minimize(loss)
 
+log_path = os.path.dirname(os.path.abspath(__file__))
+graph_writer = tf.summary.FileWriter(log_path , sess.graph)
 n_epochs = 5000
 for i in range(n_epochs):
     sess.run(train, {x1: x1_train, x2: x2_train, y:y_train})
