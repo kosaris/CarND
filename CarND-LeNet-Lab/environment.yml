@@ -1,0 +1,63 @@
+name: My-Lab
+channels:
+- defaults
+dependencies:
+- ca-certificates=2017.08.26=h1d4fec5_0
+- certifi=2017.11.5=py35h9749603_0
+- cycler=0.10.0=py35hc4d5149_0
+- dbus=1.10.22=h3b5a359_0
+- expat=2.2.5=he0dffb1_0
+- fontconfig=2.12.4=h88586e7_1
+- freetype=2.8=hab7d2ae_1
+- glib=2.53.6=h5d9569c_2
+- gst-plugins-base=1.12.2=he3457e5_0
+- gstreamer=1.12.2=h4f93127_0
+- icu=58.2=h9c2bf20_1
+- intel-openmp=2018.0.0=hc7b2577_8
+- jpeg=9b=h024ee3a_2
+- libedit=3.1=heed3624_0
+- libffi=3.2.1=hd88cf55_4
+- libgcc=7.2.0=h69d50b8_2
+- libgcc-ng=7.2.0=h7cc24e2_2
+- libgfortran-ng=7.2.0=h9f7466a_2
+- libiconv=1.14=0
+- libpng=1.6.32=hbd3595f_4
+- libstdcxx-ng=7.2.0=h7a57d05_2
+- libxcb=1.12=hcd93eb1_4
+- libxml2=2.9.4=0
+- matplotlib=2.1.1=py35ha26af80_0
+- mkl=2018.0.1=h19d6760_4
+- ncurses=6.0=h9df7e31_2
+- numpy=1.14.0=py35h3dfced4_0
+- openssl=1.0.2n=hb7f436b_0
+- pcre=8.41=hc27e229_1
+- pip=9.0.1=py35h7e7da9d_4
+- pyparsing=2.2.0=py35h041ed72_1
+- pyqt=5.6.0=py35h0e41ada_5
+- python=3.5.4=h417fded_24
+- python-dateutil=2.6.1=py35h90d5b31_1
+- pytz=2017.3=py35hb13c558_0
+- qt=5.6.2=h974d657_12
+- readline=7.0=ha6073c6_4
+- scikit-learn=0.19.1=py35hbf1f462_0
+- scipy=1.0.0=py35hcbbe4a2_0
+- setuptools=38.4.0=py35_0
+- sip=4.18.1=py35h9eaea60_2
+- six=1.11.0=py35h423b573_1
+- sqlite=3.20.1=hb898158_2
+- tk=8.6.7=hc745277_3
+- tornado=4.5.3=py35_0
+- wheel=0.30.0=py35hd3883cf_1
+- xz=5.2.3=h55aa19d_2
+- zlib=1.2.11=ha838bed_2
+- pip:
+  - bleach==1.5.0
+  - enum34==1.1.6
+  - html5lib==0.9999999
+  - markdown==2.6.11
+  - protobuf==3.5.1
+  - roboschool (/home/sina/roboschool)==1.0
+  - tensorflow==1.4.1
+  - tensorflow-tensorboard==0.4.0rc3
+  - werkzeug==0.14.1
+
