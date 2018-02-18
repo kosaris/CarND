@@ -166,4 +166,4 @@ logits = tf.nn.softmax(tf.add(tf.matmul(fc3, wd4), bd4))
 
 #### 4. Miss-labeled Images
 The following images were misclassified. Most of the misclassified images are due to very poor lighting conditions.
-![alt text][image3]{:height="560px"}
+![alt text][image3]
