@@ -51,39 +51,38 @@ for line in lines:
  
 X_train = np.array(images)
 y_train = np.array(measurements)
-print(len(X_train))
 
-# # build the convolution network with 4 conv2d layers and 4 fully connected layers
-# model = Sequential()
-# model.add(Lambda(lambda x:x/255.0 - .5 , input_shape= (160, 320,3)))
-# model.add(Cropping2D(cropping=((70,25), (0,0)), input_shape=(3,160,320)))
-# model.add(Convolution2D(24, 5, 5, subsample = (2,2), activation = 'relu'))
-# model.add(Convolution2D(36, 5, 5, subsample = (2,2), activation = 'relu'))
-# model.add(Convolution2D(48, 5, 5, subsample = (2,2), activation = 'relu'))
-# model.add(Convolution2D(64, 3, 3, activation = 'relu'))
-# model.add(Convolution2D(64, 3, 3, activation = 'relu'))
-# model.add(Flatten())
-# model.add(Dense(100))
-# model.add(Dropout(.5))
-# model.add(Dense(50))
-# model.add(Dropout(.5))
-# model.add(Dense(10))
-# model.add(Dropout(.5))
-# model.add(Dense(1))
-# 
-# #Save the model architecture
-# from keras.utils.vis_utils import plot_model
-# plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
-# 
-# model.compile(loss='mse', optimizer='adam')
-# history_object = model.fit(X_train, y_train, validation_split = .2, shuffle=True, nb_epoch=5)
-# 
-# model.save('model9.h5')
-# 
-# plt.plot(history_object.history['loss'])
-# plt.plot(history_object.history['val_loss'])
-# plt.title('model mean squared error loss')
-# plt.ylabel('mean squared error loss')
-# plt.xlabel('epoch')
-# plt.legend(['training set', 'validation set'], loc='upper right')
-# plt.show()
+# build the convolution network with 4 conv2d layers and 4 fully connected layers
+model = Sequential()
+model.add(Cropping2D(cropping=((70,25), (0,0)), input_shape=(160,320,3)))
+model.add(Lambda(lambda x:x/255.0 - .5))
+model.add(Convolution2D(24, 5, 5, subsample = (2,2), activation = 'relu'))
+model.add(Convolution2D(36, 5, 5, subsample = (2,2), activation = 'relu'))
+model.add(Convolution2D(48, 5, 5, subsample = (2,2), activation = 'relu'))
+model.add(Convolution2D(64, 3, 3, activation = 'relu'))
+model.add(Convolution2D(64, 3, 3, activation = 'relu'))
+model.add(Flatten())
+model.add(Dense(100))
+model.add(Dropout(.5))
+model.add(Dense(50))
+model.add(Dropout(.5))
+model.add(Dense(10))
+model.add(Dropout(.5))
+model.add(Dense(1))
+
+#Save the model architecture
+from keras.utils.vis_utils import plot_model
+plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
+
+model.compile(loss='mse', optimizer='adam')
+history_object = model.fit(X_train, y_train, validation_split = .2, shuffle=True, nb_epoch=8)
+
+model.save('model9.h5')
+
+plt.plot(history_object.history['loss'])
+plt.plot(history_object.history['val_loss'])
+plt.title('model mean squared error loss')
+plt.ylabel('mean squared error loss')
+plt.xlabel('epoch')
+plt.legend(['training set', 'validation set'], loc='upper right')
+plt.show()
