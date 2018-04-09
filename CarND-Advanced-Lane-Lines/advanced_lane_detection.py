@@ -21,8 +21,8 @@ M = pkl_data["M"]
 M_inv = pkl_data["M_inv"]
 
 my_road_line_detector = road_lines.RoadLineDetector(mtx, dist, M , M_inv)
-#image = cv2.imread("test_images/project_video.jpg")
 
+#image = cv2.imread("test_images/straight_lines2.jpg")
 #b,g,r = cv2.split(image)       # get b,g,r
 #image = cv2.merge([r,g,b])     # switch it to rgb
 #result = my_road_line_detector.process_image(image)
@@ -32,5 +32,5 @@ my_road_line_detector = road_lines.RoadLineDetector(mtx, dist, M , M_inv)
 
 output = 'out_project_video1.mp4'
 clip1 = VideoFileClip("project_video.mp4")
-out_clip = clip1.fl_image(my_road_line_detector.process_image) 
+out_clip = clip1.fl_image(my_road_line_detector.process_image)
 out_clip.write_videofile(output, audio=False)

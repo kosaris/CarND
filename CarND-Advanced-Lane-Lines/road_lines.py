@@ -76,7 +76,7 @@ class RoadLineDetector():
         self.right_fit = np.array([1.17955827e-04 , -2.79696905e-01 ,  1.25397792e+03])
         # gain of the filter for line coefficients. 
         # out = filter_gain * previous + (1-filter_gain)*current
-        self.filter_gain = 0.8*0
+        self.filter_gain = 0.8
         # number of points that must be detected to constitute a successful
         # detection
         self.min_index = 1000
@@ -242,7 +242,6 @@ class RoadLineDetector():
         the original image, as well as the curvature of the two lines
         """
         road_img_undistort = cv2.undistort(road_img, self.mtx, self.dist, None, self.mtx)
-        img_size = (road_img_undistort.shape[1], road_img_undistort.shape[0])
 
         warped = self.get_combined_binary(road_img_undistort)
         
@@ -277,7 +276,17 @@ class RoadLineDetector():
         # Calculate the radius
         left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
         right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
-        curvature_msg = "left curve {:4f}, right curve {:4f}".format(left_curverad, right_curverad)
+        left_curvature_msg = "left curve {:4f}m".format(left_curverad)
+        right_curvature_msg = "right curve {:4f}m".format(right_curverad)
+        
+        img_size = (road_img_undistort.shape[1], road_img_undistort.shape[0])
+        Vehiclepos = img_size[0]/2
+        l_fitValue = self.left_fit[0]*img_size[1]**2 + self.left_fit[1]*img_size[1] + self.left_fit[2]
+        r_fit_Value = self.right_fit[0]*img_size[1]**2 + self.right_fit[1]*img_size[1] + self.right_fit[2]
+        lane_center_pos = (l_fitValue + r_fit_Value) /2
+        center_off = (Vehiclepos - lane_center_pos) * xm_per_pix
+        center_off_msg = "offset from center {:4f}m".format(center_off)
+
         
         color_warped = cv2.warpPerspective(road_img_undistort, self.M, img_size)
         
@@ -287,5 +296,7 @@ class RoadLineDetector():
         cv2.fillPoly(color_warped, np.int_([pts]), (255,0, 0))
         new_warp = cv2.warpPerspective(color_warped, self.M_inv, (color_warped.shape[1], color_warped.shape[0])) 
         result = cv2.addWeighted(road_img_undistort, 1, new_warp, 0.3, 0)
-        texted_image =cv2.putText(img=np.copy(result), text=curvature_msg, org=(10,10),fontFace=1, fontScale=1, color=(255,255,255), thickness=2)
+        texted_image =cv2.putText(img=np.copy(result), text=left_curvature_msg, org=(50,50),fontFace=1, fontScale=1.2, color=(255,255,0), thickness=2)
+        texted_image =cv2.putText(img=np.copy(texted_image), text=right_curvature_msg, org=(50,75),fontFace=1, fontScale=1.2, color=(255,255,0), thickness=2)
+        texted_image =cv2.putText(img=np.copy(texted_image), text=center_off_msg, org=(50,100),fontFace=1, fontScale=1.2, color=(255,255,0), thickness=2)
         return texted_image
