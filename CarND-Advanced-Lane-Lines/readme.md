@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/combined_binary1.png "Binary Example"
 [image4]: ./output_images/perspective1.png "straight line perspective example"
 [image5]: ./output_images/polyfit1.png "Fit Visual"
-[image6]: ./output_images/section_overlayed.png "overlayed"
+[image6]: ./output_images/section_overlayed.jpg "overlayed"
 [video1]: ./output_images/out_project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
